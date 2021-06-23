@@ -1,0 +1,73 @@
+//color
+$white: #fff;
+$black:#000;
+$dark-gray:rgb(78, 78, 78);
+$menu-gray:#8D8D8D;
+$hover-gray:#ddd;
+$primary-color:#916000;
+$secondary:#c29a4c;
+
+//font-size
+
+.font16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.font20 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.font24 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.font32 {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.font40 {
+  font-size: 40px;
+  line-height: 60px;
+
+  @include mobile {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+//font-family
+$font-family: -apple-system,
+BlinkMacSystemFont,
+'PingFang TC',
+sans-serif;
+//margin
+
+.mb16 {
+  margin-bottom: 16px;
+}
+
+//objective-fit
+
+.objective-fit-top {
+  object-position: top;
+}
+
+.objective-fit-bottom {
+  object-position: bottom;
+}
+
+.objective-fit-left {
+  object-position: left;
+}
+
+.objective-fit-right {
+  object-position: right;
+}
+
+.objective-fit-30 {
+  object-position: 0 -30px;
+}

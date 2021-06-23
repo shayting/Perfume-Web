@@ -1,0 +1,669 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: $font-family;
+  padding-top: 57px;
+  /*header有設position:fixed，解決後面會被遮住的問題*/
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.container {
+  max-width: 1140px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+//home page
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: $white;
+  z-index: 5;
+
+  /*header設position:fixed導致flex失效，因此多加.nav這層解決失效問題*/
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 9px;
+    padding-bottom: 9px;
+
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      width: 445px;
+
+      @include pad {
+        display: none;
+      }
+
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          color: $menu-gray;
+
+          &:hover {
+            color: $dark-gray;
+          }
+        }
+      }
+    }
+
+    .m-menu {
+      display: none;
+
+      a {
+        color: $menu-gray;
+        display: block;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        em {
+          position: absolute;
+          top: -1px;
+          right: 2px;
+          background-color: $primary-color;
+          color: $white;
+          border-radius: 50%;
+          padding: 2px 4px;
+        }
+
+        .cart {
+          font-size: 30px;
+        }
+
+        .burger {
+          font-size: 40px;
+        }
+
+        &:hover {
+          color: rgb(78, 78, 78);
+        }
+      }
+
+      @include pad {
+        display: flex;
+      }
+    }
+  }
+}
+
+.banner {
+  background-image: url("../images/index1.jpg");
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 870px;
+  margin: 0;
+
+  @include pad {
+    height: 480px;
+    background-position: center;
+  }
+
+  .bn {
+    padding-top: 295px;
+    display: flex;
+    justify-content: flex-end;
+
+    @include pad {
+      padding-top: 101px;
+      justify-content: center;
+    }
+  }
+
+  .bn-text {
+    color: $white;
+    width: 445px;
+
+    @include mobile {
+      width: 345px;
+    }
+
+    button {
+      width: 350px;
+      border-radius: 30px;
+      border: 1px solid $white;
+      background-color: transparent;
+
+      @include pad {
+        width: 445px;
+      }
+
+      @include mobile {
+        width: 345px;
+      }
+
+      a {
+        display: block;
+        color: $white;
+        padding: 8px 0;
+        font-size: 28px;
+      }
+
+      &:hover {
+        background-color: $white;
+
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+
+      @include pad {
+        flex-direction: column;
+      }
+    }
+
+    .reverse {
+      @include pad {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  .main-txt {
+    width: 50%;
+    height: 555px;
+    display: flex;
+    align-items: center;
+
+    @include pad {
+      width: 100%;
+      height: auto;
+      margin: 8px 0 32px 0;
+    }
+
+    .txt-box {
+      width: 350px;
+      margin: auto;
+
+      @include pad {
+        width: 100%;
+      }
+
+      p {
+        font-weight: lighter;
+      }
+
+      a {
+        color: $secondary;
+
+        &:hover {
+          color: #b18d44;
+        }
+      }
+    }
+  }
+
+  .main-plan {
+    width: 50%;
+    height: 1080px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    @include pad {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .plan-box {
+    width: 350px;
+    margin: auto;
+
+    @include pad {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    h3 {
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin-bottom: 52px;
+    }
+
+    button {
+      width: 350px;
+      border-radius: 30px;
+      border: 1px solid $black;
+      background-color: transparent;
+      margin-top: 8px;
+
+      @include pad {
+        width: 100%;
+      }
+
+      a {
+        display: block;
+        font-size: 20px;
+        padding: 18px 0;
+      }
+
+      &:hover {
+        background-color: $black;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.main-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include pad {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 555px;
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .plan-img {
+    height: 1080px;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+.product {
+  width: 100%;
+  background-color: #E0E0E0;
+
+  .product-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    @include pad {
+      flex-direction: column;
+    }
+
+    .product-item {
+      width: 350px;
+      position: relative;
+
+      @include pad {
+        width: 100%;
+        margin: auto;
+      }
+
+      .img-box {
+        max-width: 350px;
+        height: 540px;
+        margin-bottom: 8px;
+        overflow: hidden;
+
+        /*讓hover動畫不超出範圍*/
+
+        @include pad {
+          max-width: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.1, 1.1);
+          }
+        }
+
+        .resize {
+          @include pad {
+            object-position: bottom;
+          }
+        }
+
+        .sold-out {
+          display: block;
+          width: 100%;
+          height: 540px;
+          line-height: 540px;
+          background-color: rgba(0, 0, 0, .3);
+          position: absolute;
+          top: 0;
+          left: 0;
+          text-align: center;
+          color: $white;
+          z-index: 2;
+
+          &:hover~img {
+            transform: scale(1.1, 1.1);
+          }
+        }
+      }
+    }
+
+    a:hover {
+      text-shadow: #888 0.1em 0.1em 0.1em;
+    }
+  }
+
+  p {
+
+    span {
+      color: #8D8D8D;
+      margin-left: 8px;
+      text-decoration: line-through;
+    }
+  }
+}
+
+.recycle {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .recycle-content {
+    display: flex;
+    justify-content: space-between;
+
+    @include pad991 {
+      flex-direction: column;
+    }
+
+    .recycle-img {
+      width: 730px;
+
+      @include pad991 {
+        width: 100%;
+      }
+    }
+
+    .recycle-txt {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+
+      @include pad991 {
+        margin: 10px 0;
+      }
+
+      .txt-box {
+        width: 350px;
+        margin: auto;
+
+        @include pad991 {
+          width: 100%;
+        }
+
+        a {
+          color: $secondary;
+
+          &:hover {
+            color: #b18d44;
+          }
+        }
+      }
+    }
+  }
+}
+
+.subscribe {
+  width: 100vw;
+  height: 600px;
+  background-image: url(../images/index10.jpg);
+  background-size: cover;
+  background-position: center;
+
+  .sb-txt {
+    padding-top: 312px;
+
+    h2 {
+      color: #8D8D8D;
+      margin-bottom: 20px;
+    }
+
+    .input-wrap {
+      width: 100%;
+
+      input {
+        border: 2px solid $primary-color;
+        border-radius: 4px 0px 0px 4px;
+        font-size: 1rem;
+        padding: 20px 84px 20px 16px;
+        border-right: none;
+        outline: none;
+
+        @include mobile {
+          width: 73%;
+        }
+      }
+
+      button {
+        border: 2px solid $primary-color;
+        background-color: $primary-color;
+        border-radius: 0px 4px 4px 0px;
+        font-size: 1rem;
+        color: $white;
+        padding: 20px 26px;
+        transition: 0.3s;
+
+        &:hover {
+          border: 2px solid #6e4a00;
+          background-color: #6e4a00;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  background-color: $primary-color;
+  height: 80px;
+
+  .ft-txt {
+    display: flex;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    justify-content: space-between;
+    align-items: center;
+
+    .copyright {
+      display: flex;
+      align-items: center;
+
+      @include pad {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 21px;
+        color: $white;
+        margin-left: 20px;
+      }
+    }
+
+    .bottom-menu {
+      ul {
+        display: flex;
+
+        li {
+          margin-left: 36px;
+
+          a {
+            color: $white;
+
+            &:hover {
+              color: $hover-gray;
+            }
+          }
+        }
+      }
+
+      @include pad {
+        display: none;
+      }
+    }
+  }
+}
+
+//product page
+.bran {
+  width: 100%;
+  background-color: $primary-color;
+  padding: 14px 0;
+
+  @include mobile {
+    display: none;
+  }
+
+  .bran-list {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+
+    @include pad991 {
+      width: 100%;
+    }
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $hover-gray;
+      }
+    }
+  }
+}
+
+.products {
+  width: 100%;
+  padding: 80px 0 60px 0;
+
+  .product-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .item {
+      width: 255px;
+      margin-bottom: 58px;
+
+      @include mobile {
+        width: 220px;
+      }
+
+      .item-img {
+        width: 255px;
+        height: 255px;
+
+        @include mobile {
+          width: 220px;
+          height: 220px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      a {
+        span {
+          color: $primary-color;
+
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+
+      a.product-name:hover {
+        color: $primary-color;
+      }
+
+      p {
+
+        span {
+          margin-left: 8px;
+          text-decoration: line-through;
+          color: $menu-gray;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+
+    ul {
+      display: flex;
+
+      li {
+        color: $black;
+        margin: 10px;
+
+        a {
+          text-align: center;
+          display: block;
+          width: 19px;
+        }
+
+        &:active,
+        :hover {
+          color: #AC8A46;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
